@@ -1,0 +1,25 @@
+{% extends 'app/dummy.html' %}
+{% block title %}
+<title>School Detail</title>
+{% endblock %}
+{% block body_block %}
+<center>
+    <h1>school Detail</h1>
+   <h1>Detail of  {{sclobject.name}} object</h1>
+   <h1>Name of principal {{sclobject.principal}}</h1>
+
+   <h1>Loction of school {{sclobject.loction}}</h1>
+
+   <h1>Detail of Students are</h1>
+   {% for i in sclobject.students.all %}
+    <h4>Name of The student {{i.sname}}</h4>
+    <h4>Age of The student {{i.sage}}</h4>
+
+   {% endfor %}
+
+   <a href="{% url 'schoolupdate' pk=sclobject.pk %}" class="btn btn-secondary">Update</a>
+
+   <a href="{% url 'schooldelete' pk=sclobject.pk %}" class="btn btn-danger">Delete</a>
+
+</center>
+{% endblock %}
